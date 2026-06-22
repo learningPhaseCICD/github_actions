@@ -1,8 +1,40 @@
 name: Manually Triggered
+
 on:
-    workflow_dispatch:
+  workflow_dispatch:
+    inputs:
+      string:
+        description: A string input
+        type: string
+        required: true
+        default: "Bharath"
+      number:
+        description: A number input
+        default: 18
+        type: number
+      option:
+        description: "An Options input"
+        required: true
+        default: "Option 3"
+        type: choice
+        options:
+          - Option 1
+          - Option 2
+          - Option 3
+      boolean:
+        description: A boolean input
+        required: false
+        type: boolean
+      environment:
+        description: "Environment"
+        type: environment
+        required: true
+
 jobs:
-    log-info:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo $GITHUB_REF
+  log-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $GITHUB_REF
+      - run: |
+          echo "String: ${{ inputs.string }}"
+          echo "Number: ${{ inputs.number }}"
