@@ -31,10 +31,10 @@ on:
         required: true
 
 jobs:
-  log-info:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo $GITHUB_REF
-      - run: |
-          echo "String: ${{ inputs.string }}"
-          echo "Number: ${{ inputs.number }}"
+    log-info:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo $GITHUB_REF
+            - run: |
+                echo "String: ${{ inputs.string }}"
+                echo "Number: ${{ inputs.number }}"
