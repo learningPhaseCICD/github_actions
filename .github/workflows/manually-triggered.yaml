@@ -38,3 +38,5 @@ jobs:
             - run: |
                 echo "String: ${{ inputs.string }}"
                 echo "Number: ${{ inputs.number }}"
+                echo "Boolean: ${{ inputs.boolean }}"
+                echo "Environment: ${{ inputs.environment }}"
