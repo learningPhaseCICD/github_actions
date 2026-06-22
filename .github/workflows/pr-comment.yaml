@@ -1,0 +1,18 @@
+name: Pull request comment
+on:
+    pull_request_target:
+        types: [opened]
+jobs:
+    pr-comment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Comment on new PRs
+              uses: actions/github-script@v6
+              with:
+                script: |
+                    gtihub.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number,
+                        body: 'Thanks for contributing!',
+                    });
